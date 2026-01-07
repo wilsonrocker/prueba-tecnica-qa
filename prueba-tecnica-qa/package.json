@@ -1,0 +1,18 @@
+{
+  "name": "prueba-tecnica-qa",
+  "version": "1.0.0",
+  "description": "Prueba Técnica E2E y API con Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test:e2e": "cypress run --spec 'cypress/e2e/saucedemo.cy.js' --browser chrome",
+    "test:api": "cypress run --spec 'cypress/e2e/api_petstore.cy.js'",
+    "test:all": "cypress run"
+  },
+  "keywords": ["cypress", "qa", "testing"],
+  "author": "Tu Nombre",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.0.0" 
+  }
+}

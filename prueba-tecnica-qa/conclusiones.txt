@@ -1,0 +1,13 @@
+HALLAZGOS Y CONCLUSIONES DEL EJERCICIO
+
+SELECCIÓN DE HERRAMIENTA:
+Se eligió Cypress.io para ambas soluciones (E2E y API) debido a que reduce  la complejidad de configuración y permitiendo una ejecución rápida y fiable en  JavaScript .
+
+SOBRE E2E (SauceDemo):
+- El sitio SauceDemo está optimizado para automatización, utilizando atributos 'data-test'. Esto permitió crear selectores robustos que no dependen de clases CSS o XPaths que podrían cambiar.
+- La aserción final valida el mensaje de éxito, asegurando que el flujo de negocio se completó.
+
+SOBRE API (PetStore):
+- Se implementó un flujo de datos dinámico. En lugar de usar IDs estáticos ("hardcoded"), el test captura el ID generado en el POST y lo reutiliza en el GET y PUT.
+- Esto asegura que el test sea independiente y pueda ejecutarse múltiples veces sin conflictos de datos duplicados.
+- Se validaron códigos de estado HTTP (200) y la integridad de los datos en el cuerpo de la respuesta (JSON Body).
