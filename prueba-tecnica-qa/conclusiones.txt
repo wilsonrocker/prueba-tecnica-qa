@@ -1,13 +1,29 @@
 HALLAZGOS Y CONCLUSIONES DEL EJERCICIO
 
 SELECCIÓN DE HERRAMIENTA:
-Se eligió Cypress.io para ambas soluciones (E2E y API) debido a que reduce  la complejidad de configuración y permitiendo una ejecución rápida y fiable en  JavaScript .
+Se eligió Cypress.io para ambas soluciones (E2E y API) por su facilidad de configuración, ejecución rápida y soporte nativo para JavaScript. Esto permitió un flujo de trabajo eficiente y reproducible.
 
-SOBRE E2E (SauceDemo):
-- El sitio SauceDemo está optimizado para automatización, utilizando atributos 'data-test'. Esto permitió crear selectores robustos que no dependen de clases CSS o XPaths que podrían cambiar.
-- La aserción final valida el mensaje de éxito, asegurando que el flujo de negocio se completó.
+HALLAZGOS RELEVANTES:
+- El sitio SauceDemo está optimizado para automatización, utilizando atributos 'data-test', lo que facilitó la creación de selectores robustos y estables.
+- En las pruebas API, se implementó manejo dinámico de datos, capturando IDs generados en tiempo real para evitar conflictos y asegurar independencia de los tests.
+- El uso de archivos externos para datos de entrada mejoró la mantenibilidad y escalabilidad de las pruebas.
+- Se aplicó el Page Object Pattern, lo que permitió separar la lógica de interacción de la lógica de test, facilitando la extensión y el mantenimiento.
 
-SOBRE API (PetStore):
-- Se implementó un flujo de datos dinámico. En lugar de usar IDs estáticos ("hardcoded"), el test captura el ID generado en el POST y lo reutiliza en el GET y PUT.
-- Esto asegura que el test sea independiente y pueda ejecutarse múltiples veces sin conflictos de datos duplicados.
-- Se validaron códigos de estado HTTP (200) y la integridad de los datos en el cuerpo de la respuesta (JSON Body).
+RETOS ENCONTRADOS Y SOLUCIONES:
+- Evitar dependencias de datos estáticos en pruebas API: Se resolvió capturando el ID generado en el POST y reutilizándolo en las siguientes operaciones.
+- Selección de selectores robustos: Se priorizó el uso de atributos 'data-test' sobre clases o XPaths, minimizando el riesgo de rotura por cambios en el frontend.
+- Manejo de estados y validaciones: Se implementaron aserciones claras para validar tanto el flujo de negocio como la integridad de los datos.
+
+POSIBLES MEJORAS FUTURAS:
+- Implementar pruebas de regresión automatizadas para detectar cambios inesperados en el sistema.
+- Integrar reportes automáticos y métricas de cobertura.
+- Añadir pruebas negativas y edge cases para fortalecer la robustez del sistema.
+- Expandir la cobertura a otros endpoints y flujos de negocio.
+
+COBERTURA Y ALCANCE DE LAS PRUEBAS:
+- E2E: Se cubre el flujo completo de compra en SauceDemo, desde login hasta checkout, validando el mensaje de éxito final.
+- API: Se cubre el ciclo de vida de un recurso (creación, consulta, actualización) en PetStore, validando códigos de estado y datos retornados.
+- Los tests son independientes, reutilizables y pueden ejecutarse múltiples veces sin conflictos.
+
+CONCLUSIÓN:
+El ejercicio demuestra una estructura sólida, aplicación de buenas prácticas y patrones de diseño, así como un manejo técnico avanzado en automatización. Las pruebas implementadas aseguran la calidad funcional y la integridad de los datos, y la arquitectura permite fácil extensión y mantenimiento. Reforzar la documentación y ampliar la cobertura elevará aún más el nivel profesional del proyecto.
